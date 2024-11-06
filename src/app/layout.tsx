@@ -7,6 +7,7 @@ const PlusJakarta = localFont({
   variable: "--font-plus-jakarta",
   weight: "100 900",
 });
+import Navbar from "./components/navbar";
 
 export const metadata: Metadata = {
   title: "Sajakita",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${PlusJakarta.variable} antialiased`}>{children}</body>
+      <body className={`${PlusJakarta.variable} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
