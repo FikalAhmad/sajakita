@@ -1,8 +1,10 @@
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 interface NavLink {
   name: string;
@@ -16,13 +18,25 @@ const navLinks: NavLink[] = [
   { name: "Bisnis", url: "" },
   { name: "Entertainment", url: "" },
 ];
+const navLinks2: NavLink[] = [
+  { name: "Nasional", url: "" },
+  { name: "Teknologi", url: "" },
+  { name: "Gaya Hidup", url: "" },
+  { name: "Bisnis", url: "" },
+  { name: "Entertainment", url: "" },
+  { name: "awaiodawio", url: "" },
+  { name: "awdkuabwdkuaw", url: "" },
+  { name: "Gaya awdadw", url: "" },
+  { name: "Bisnisawdawd", url: "" },
+  { name: "Entertainmentawda", url: "" },
+];
 
 export default function Navbar() {
   return (
     <nav className="bg-white px-20 py-5 flex flex-row justify-between">
       <div className="text-black text-xl font-bold font-poppins">Sajakita</div>
       <div className="flex flex-row items-center justify-between gap-10">
-        <ul className="flex flex-row gap-10">
+        <ul className="hidden md:flex flex-row gap-10">
           {navLinks.map((link) => (
             <li className="text-black" key={link.name}>
               <a href={link.url}>{link.name}</a>
@@ -60,8 +74,26 @@ export default function Navbar() {
               />
             </svg>
           </PopoverTrigger>
-          <PopoverContent align="center" className="shadow-none mt-5 w-[60rem] mx-auto">
-            Test
+          <PopoverContent
+            className="w-screen max-w-7xl mt-8 bg-white rounded-lg"
+            align="center"
+            collisionPadding={{ right: 200 }}
+          >
+            <div className="container mx-auto">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {navLinks2.map((link) => (
+                  <li key={link.name}>
+                    <Button
+                      variant="link"
+                      asChild
+                      className="w-full justify-start"
+                    >
+                      <Link href={link.url}>{link.name}</Link>
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </PopoverContent>
         </Popover>
       </div>
