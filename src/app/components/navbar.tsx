@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -31,26 +32,28 @@ const navLinks2: NavLink[] = [
   { name: "Entertainmentawda", url: "" },
 ];
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <nav className="bg-white px-20 py-5 flex flex-row justify-between">
-      <div className="text-black text-xl font-bold font-poppins">Sajakita</div>
-      <div className="flex flex-row items-center justify-between gap-10">
-        <ul className="hidden md:flex flex-row gap-10">
+    <nav className="bg-white py-5 flex justify-between items-center">
+      <div className="text-black text-2xl lg:text-4xl font-bold">Sajakita</div>
+      <div className="flex items-center justify-between gap-10">
+        <ul className="hidden md:flex flex-row gap-5 lg:gap-20">
           {navLinks.map((link) => (
-            <li className="text-black" key={link.name}>
+            <li className="text-black text-sm lg:text-lg" key={link.name}>
               <a href={link.url}>{link.name}</a>
             </li>
           ))}
         </ul>
+      </div>
+      <div>
         <Popover>
-          <PopoverTrigger>
+          <PopoverTrigger asChild>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="23"
+              height="23"
               viewBox="0 0 38 38"
-              fill="none"
+              fill="black"
             >
               <path
                 d="M3.16667 28.5C3.16667 26.061 3.16667 24.8414 3.71566 23.9455C4.02284 23.4442 4.44431 23.0228 4.94559 22.7156C5.84146 22.1667 7.06097 22.1667 9.5 22.1667C11.939 22.1667 13.1585 22.1667 14.0544 22.7156C14.5557 23.0228 14.9772 23.4442 15.2843 23.9455C15.8333 24.8414 15.8333 26.061 15.8333 28.5C15.8333 30.939 15.8333 32.1586 15.2843 33.0544C14.9772 33.5557 14.5557 33.9772 14.0544 34.2844C13.1585 34.8333 11.939 34.8333 9.5 34.8333C7.06097 34.8333 5.84146 34.8333 4.94559 34.2844C4.44431 33.9772 4.02284 33.5557 3.71566 33.0544C3.16667 32.1586 3.16667 30.939 3.16667 28.5Z"
@@ -75,19 +78,15 @@ export default function Navbar() {
             </svg>
           </PopoverTrigger>
           <PopoverContent
-            className="w-screen max-w-7xl mt-8 bg-white rounded-lg"
-            align="center"
-            collisionPadding={{ right: 200 }}
+            className="w-screen bg-white rounded-lg mt-5"
+            align={"center"}
+            // collisionPadding={{ right: 200 }}
           >
             <div className="container mx-auto">
               <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {navLinks2.map((link) => (
                   <li key={link.name}>
-                    <Button
-                      variant="link"
-                      asChild
-                      className="w-full justify-start"
-                    >
+                    <Button variant="link" asChild>
                       <Link href={link.url}>{link.name}</Link>
                     </Button>
                   </li>
@@ -97,7 +96,38 @@ export default function Navbar() {
           </PopoverContent>
         </Popover>
       </div>
-      <div className=""></div>
+      <div className="relative hidden md:block">
+        <Input
+          type="search"
+          className="pl-4 pr-8 border-0 rounded-full bg-slate-200"
+          placeholder="Search..."
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width={23}
+          height={23}
+          color={"#000000"}
+          fill={"none"}
+          className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+        >
+          <path
+            d="M17.5 17.5L22 22"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
