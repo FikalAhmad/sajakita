@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Other from "./components/other/page";
 
 // "use client"
 export default function Home() {
@@ -69,6 +70,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+    <br />
+    {/* Other Categories */}
+    <Other />
     </div>
   );
 }
