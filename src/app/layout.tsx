@@ -7,7 +7,7 @@ const PlusJakarta = localFont({
   variable: "--font-plus-jakarta",
   weight: "100 900",
 });
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 
 export const metadata: Metadata = {
   title: "Sajakita",

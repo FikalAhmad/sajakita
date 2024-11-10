@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Sidebar() {
+const Sidebar = () => {
   return (
     <div className="col-span-4">
       <div className="sticky inline-block float-right h-30 -top-10">
@@ -39,3 +39,5 @@ export default function Sidebar() {
     </div>
   );
 }
+
+export default Sidebar;

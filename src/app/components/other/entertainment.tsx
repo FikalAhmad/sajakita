@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Entertainment() {
+const Entertainment = () => {
   return (
     <div className="mx-auto">
       <div className="flex justify-between items-center mb-6">
@@ -51,3 +51,5 @@ export default function Entertainment() {
     </div>
   );
 }
+
+export default Entertainment;

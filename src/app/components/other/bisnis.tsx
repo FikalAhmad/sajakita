@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Bisnis() {
+const Bisnis = () => {
   return (
     <div className="mx-auto mt-5">
       <div className="flex justify-between items-center mb-6">
@@ -49,3 +49,5 @@ export default function Bisnis() {
     </div>
   );
 }
+
+export default Bisnis;

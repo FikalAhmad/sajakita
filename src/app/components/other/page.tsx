@@ -3,7 +3,7 @@ import Entertainment from "./entertainment";
 import Nasional from "./nasional";
 import Sidebar from "./sidebar";
 
-export default function Other() {
+const Other = () => {
   return (
     <div className="mt-5 grid grid-cols-12 gap-5 w-full">
       <div className="col-span-8">
@@ -15,3 +15,5 @@ export default function Other() {
     </div>
   );
 }
+
+export default Other;
