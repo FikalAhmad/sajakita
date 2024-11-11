@@ -15,10 +15,10 @@ const Bisnis = () => {
         {[1, 2, 3].map((item) => (
 
           <article key={item} className="bg-white rounded-lg overflow-hidden">
-            <div className="p-6">
+            <div className="py-5">
               <div className="flex gap-4">
                 <Image
-                  src="/placeholder.svg?height=120&width=120"
+                  src="/thumbnail.png"
                   alt="Article thumbnail"
                   width={120}
                   height={120}

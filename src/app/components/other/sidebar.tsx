@@ -15,7 +15,7 @@ const Sidebar = () => {
                 <div className="py-5">
                   <div className="flex gap-2">
                     <Image
-                      src="/placeholder.svg?height=120&width=120"
+                      src="/thumbnail.png"
                       alt="Article thumbnail"
                       width={80}
                       height={80}
