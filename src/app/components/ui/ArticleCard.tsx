@@ -25,7 +25,7 @@ const ArticleCard = ({
         height={300}
         src={thumbnail}
         loading="lazy"
-        className="w-full h-[300px] object-cover rounded-xl"
+        className="h-[300px] object-cover rounded-xl"
       />
       <div className="flex flex-col py-4 gap-5 ">
         <div className="text-lg">{author}</div>
