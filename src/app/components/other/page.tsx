@@ -1,7 +1,7 @@
 import Bisnis from "./Bisnis";
 import Entertainment from "./Entertainment";
 import Nasional from "./Nasional";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar";
 
 const Other = () => {
   return (
