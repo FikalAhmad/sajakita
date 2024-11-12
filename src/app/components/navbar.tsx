@@ -37,9 +37,9 @@ const Navbar = () => {
     <nav className="bg-white py-5 flex justify-between items-center">
       <div className="text-black text-2xl lg:text-4xl font-bold">Sajakita</div>
       <div className="flex items-center justify-between gap-10">
-        <ul className="hidden md:flex flex-row gap-5 lg:gap-20">
+        <ul className="hidden md:flex items-center gap-5 lg:gap-16">
           {navLinks.map((link) => (
-            <li className="text-black text-sm lg:text-lg" key={link.name}>
+            <li className="text-black text-xs lg:text-sm" key={link.name}>
               <a href={link.url}>{link.name}</a>
             </li>
           ))}
@@ -87,7 +87,9 @@ const Navbar = () => {
                 {navLinks2.map((link) => (
                   <li key={link.name}>
                     <Button variant="link" asChild>
-                      <Link href={link.url}>{link.name}</Link>
+                      <Link href={link.url} className="text-sm">
+                        {link.name}
+                      </Link>
                     </Button>
                   </li>
                 ))}
