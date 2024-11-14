@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Sidebar = () => {
   return (
-    <div className="col-span-4">
-      <div className="sticky inline-block float-right h-30 top-10">
-        <div className="flex justify-between items-center mb-6">
+    <div className="lg:col-span-4 w-full">
+      <div className="sticky lg:inline-block lg:float-right h-30 top-10">
+        <div className="flex justify-between items-center mb-5">
           <h2 className="font-bold">Berita Rekomendasi</h2>
         </div>
         <div className="flex flex-col">

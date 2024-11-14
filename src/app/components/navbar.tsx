@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between gap-10">
         <ul className="hidden md:flex flex-row gap-5 lg:gap-20">
           {navLinks.map((link) => (
-            <li className="text-black text-sm lg:text-lg" key={link.name}>
+            <li className="text-black text-sm lg:text-base" key={link.name}>
               <a href={link.url}>{link.name}</a>
             </li>
           ))}

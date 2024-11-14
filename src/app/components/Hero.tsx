@@ -4,15 +4,15 @@ import thumbnail from "@/../public/thumbnail.png";
 
 const Hero = () => {
   return (
-    <article className="grid md:grid-cols-2 gap-8 mb-12 items-center">
+    <article className="grid grid-cols-12 gap-8 mb-12 items-center">
       <Image
         alt="Featured image"
-        className="rounded-lg w-full h-full object-cover"
+        className="rounded-lg col-span-5 w-full h-full object-cover"
         width={525}
         height={322}
         src={thumbnail}
       />
-      <div className="space-y-4">
+      <div className="space-y-4 col-span-7">
         <div className="text-sm">Author</div>
         <h1 className="text-4xl font-bold">This is example Title Page</h1>
         <p className="text-gray-600 text-lg">
