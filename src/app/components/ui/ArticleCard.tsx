@@ -27,7 +27,7 @@ const ArticleCard = ({
         loading="lazy"
         className="h-[230px] object-cover rounded-xl"
       />
-      <div className="flex flex-col py-4 gap-5 w-full max-w-[230px]">
+      <div className="flex flex-col mt-4 gap-4 w-full max-w-[230px]">
         <div className="text-sm">{author}</div>
         <h3 className="font-bold text-xl">{title}</h3>
         <p className="text-sm text-gray-600">{content}</p>

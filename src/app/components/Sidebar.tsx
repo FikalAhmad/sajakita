@@ -35,7 +35,9 @@ const Sidebar = () => {
             </article>
           ))}
         </div>
-        <SidebarAd />
+        <div className="my-10">
+          <SidebarAd />
+        </div>
       </div>
     </div>
   );

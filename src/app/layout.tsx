@@ -8,6 +8,7 @@ const PlusJakarta = localFont({
   weight: "100 900",
 });
 import Navbar from "./components/Navbar"; // Change the import statement to use lowercase 'navbar'
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Sajakita",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   );
