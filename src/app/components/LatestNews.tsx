@@ -15,8 +15,8 @@ const LatestNews = () => {
           </Link>
         </Button>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[1, 2, 3, 4].map((item) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        {[1, 2, 3, 4, 5].map((item) => (
           <ArticleCard
             key={item}
             thumbnail={thumbnail}

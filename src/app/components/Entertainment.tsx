@@ -23,6 +23,7 @@ const Entertainment = () => {
             author="Author"
             title="This is example Title Page"
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+            sem leo..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
             sem leo..."
             category="Categories"
             date="11 November 2024"

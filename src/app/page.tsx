@@ -16,8 +16,8 @@ const Home = () => {
       <LatestNews />
       <PopularNews />
       <LatestNews />
-      <div className="mt-5 grid grid-cols-12 gap-5 w-full">
-        <div className="col-span-8">
+      <div className="mt-5 flex justify-between w-full">
+        <div className="w-full">
           <Entertainment />
           <Nasional />
           <Bisnis />
