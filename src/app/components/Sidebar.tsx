@@ -5,8 +5,8 @@ import SidebarAd from "./SidebarAd";
 
 const Sidebar = () => {
   return (
-    <div className="hidden lg:block max-w-[400px] border-2">
-      <div className="sticky mt-10 top-10">
+    <div className="hidden lg:block w-[400px] max-w-[400px] border-2">
+      <div className="sticky top-10">
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-bold text-3xl">Berita Rekomendasi</h2>
         </div>

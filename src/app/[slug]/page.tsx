@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import getArticle from "./getArticle";
 import Sidebar from "../components/Sidebar";
+import TopAd from "../components/TopAd";
 
 const ArticlePage = async ({ params }: { params: { slug: string } }) => { 
   const { slug } = await params;
@@ -14,7 +15,8 @@ const ArticlePage = async ({ params }: { params: { slug: string } }) => {
   const article = articleData.data[0];
 
   return (
-    <article className="py-10">
+    <article className="">
+      <TopAd />
       <div className="">
         <div className="mb-5 flex flex-row items-center">
           <p className="text-gray-600 text-sm">
@@ -34,8 +36,10 @@ const ArticlePage = async ({ params }: { params: { slug: string } }) => {
       <div className="lg:grid lg:grid-cols-12 gap-5 mt-10">
         <div
           className="prose max-w-none lg:col-span-8 text-base"
-          dangerouslySetInnerHTML={{ __html: article.Content }}
-        ></div>
+        >
+          <Image src="/thumbnail.png" className="rounded mb-5 object-cover" width={800} height={300} alt={article.title} />
+          <div className="" dangerouslySetInnerHTML={{ __html: article.Content }}></div>
+        </div>
         <Sidebar />
       </div>
     </article>

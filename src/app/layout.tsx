@@ -7,7 +7,7 @@ const PlusJakarta = localFont({
   variable: "--font-plus-jakarta",
   weight: "100 900",
 });
-import Navbar from "./components/Navbar"; // Change the import statement to use lowercase 'navbar'
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
