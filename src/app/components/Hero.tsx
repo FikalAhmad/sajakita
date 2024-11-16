@@ -3,8 +3,6 @@ import React from "react";
 import thumbnail from "@/../public/thumbnail.png";
 
 const Hero = () => {
-  console.log(thumbnail);
-
   return (
     <article className="grid md:grid-cols-2 gap-8 mb-12 items-center">
       <Image

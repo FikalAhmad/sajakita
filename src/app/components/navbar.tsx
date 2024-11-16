@@ -13,34 +13,34 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { name: "Nasional", url: "" },
-  { name: "Teknologi", url: "" },
-  { name: "Gaya Hidup", url: "" },
-  { name: "Bisnis", url: "" },
-  { name: "Entertainment", url: "" },
+  { name: "Nasional", url: "/kategori/nasional" },
+  { name: "Teknologi", url: "/kategori/teknologi" },
+  { name: "Gaya Hidup", url: "/kategori/gayahidup" },
+  { name: "Bisnis", url: "/kategori/bisnis" },
+  { name: "Infotainment", url: "/kategori/infotainment" },
 ];
 const navLinks2: NavLink[] = [
-  { name: "Nasional", url: "" },
-  { name: "Teknologi", url: "" },
-  { name: "Gaya Hidup", url: "" },
-  { name: "Bisnis", url: "" },
-  { name: "Entertainment", url: "" },
-  { name: "awaiodawio", url: "" },
-  { name: "awdkuabwdkuaw", url: "" },
-  { name: "Gaya awdadw", url: "" },
-  { name: "Bisnisawdawd", url: "" },
-  { name: "Entertainmentawda", url: "" },
+  { name: "Nasional", url: "/kategori/nasional" },
+  { name: "Teknologi", url: "/kategori/teknologi" },
+  { name: "Gaya Hidup", url: "/kategori/gayahidup" },
+  { name: "Bisnis", url: "/kategori/bisnis" },
+  { name: "Infotainment", url: "/kategori/infotainment" },
+  { name: "Internasional", url: "/kategori/internasional" },
+  { name: "Olahraga", url: "/kategori/olahraga" },
+  { name: "Kesehatan", url: "/kategori/kesehatan" },
 ];
 
 const Navbar = () => {
   return (
-    <nav className="bg-white py-5 flex justify-between items-center">
+    <nav className="bg-white py-5 flex gap-5 justify-between items-center">
       <div className="text-black text-2xl lg:text-4xl font-bold">Sajakita</div>
       <div className="flex items-center justify-between gap-10">
         <ul className="hidden md:flex items-center gap-5 lg:gap-16">
           {navLinks.map((link) => (
             <li className="text-black text-xs lg:text-sm" key={link.name}>
-              <a href={link.url}>{link.name}</a>
+              <Button variant={"link"} asChild>
+                <a href={link.url}>{link.name}</a>
+              </Button>
             </li>
           ))}
         </ul>
@@ -86,7 +86,7 @@ const Navbar = () => {
               <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {navLinks2.map((link) => (
                   <li key={link.name}>
-                    <Button variant="link" asChild>
+                    <Button variant="destructive" asChild>
                       <Link href={link.url} className="text-sm">
                         {link.name}
                       </Link>
