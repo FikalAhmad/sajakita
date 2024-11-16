@@ -7,8 +7,10 @@ const PlusJakarta = localFont({
   variable: "--font-plus-jakarta",
   weight: "100 900",
 });
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BreakingNews from "./components/BreakingNews";
+import Providers from "@/components/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Sajakita",
@@ -23,11 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${PlusJakarta.variable} antialiased`}>
-        <div className="mx-5 md:mx-10 lg:mx-20">
-          <Navbar />
-          {children}
-        </div>
-        <Footer />
+        <Providers>
+          <BreakingNews />
+          <div className="mx-5 md:mx-10 lg:mx-20">
+            <Navbar />
+            {children}
+          </div>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

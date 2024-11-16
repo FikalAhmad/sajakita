@@ -1,14 +1,16 @@
-import Image, { StaticImageData } from "next/image";
+import { formatTanggal } from "@/components/formatTanggal";
+import Image from "next/image";
 import React from "react";
 
 type ArticleCardProps = {
-  thumbnail: StaticImageData;
+  thumbnail: string;
   author: string;
   title: string;
-  content: string;
+  content: string | null;
   category: string;
   date: string;
 };
+
 const ArticleCard = ({
   thumbnail,
   author,
@@ -34,7 +36,7 @@ const ArticleCard = ({
         <div className="flex items-center gap-3 text-xs text-gray-500">
           <span>{category}</span>
           <span className="h-1 w-1 rounded-full bg-black"></span>
-          <span>{date}</span>
+          <span>{formatTanggal(date)}</span>
         </div>
       </div>
     </article>
