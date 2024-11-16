@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
-import thumbnail from "@/../public/thumbnail.png";
 import { Button } from "@/components/ui/button";
 import ArticleCard from "./ui/ArticleCard";
-
+import { usePosts } from "@/hooks/usePosts";
+import { PostsData } from "../types/PostTypes";
 const LatestNews = () => {
+  const { data: latestNewsData, isLoading, isError } = usePosts();
+  console.log(latestNewsData);
+
   return (
     <section className="my-10">
       <div className="flex justify-between items-center mb-6">
@@ -16,18 +21,19 @@ const LatestNews = () => {
         </Button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-        {[1, 2, 3, 4, 5].map((item) => (
-          <ArticleCard
-            key={item}
-            thumbnail={thumbnail}
-            author="Author"
-            title="This is example Title Page"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-              sem leo..."
-            category="Categories"
-            date="11 November 2024"
-          />
-        ))}
+        {latestNewsData?.data?.map((item: PostsData) => {
+          return (
+            <ArticleCard
+              key={item.id}
+              thumbnail={process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url}
+              author={item.author.name}
+              title={item.title}
+              content={item.Headline}
+              category={item.category.name}
+              date={item.createdAt}
+            />
+          );
+        })}
       </div>
     </section>
   );
