@@ -15,13 +15,13 @@ const LatestNews = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold">Berita Terbaru</h2>
         <Button variant={"link"} asChild>
-          <Link className="text-lg" href="#">
+          <Link className="text-lg" href="/kategori/beritaterbaru">
             Lihat Semua
           </Link>
         </Button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-        {latestNewsData?.data?.map((item: PostsData) => {
+        {latestNewsData?.data?.slice(0, 5)?.map((item: PostsData) => {
           return (
             <ArticleCard
               key={item.id}

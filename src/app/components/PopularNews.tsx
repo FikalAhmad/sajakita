@@ -16,8 +16,8 @@ const PopularNews = () => {
           </Link>
         </Button>
       </div>
-      <div className="grid grid-cols-3 gap-5 justify-items-center items-center border-2">
-        <div className="row-span-2 w-[230px]">
+      <div className="grid grid-cols-8 gap-5 justify-items-center items-center">
+        <div className="row-span-2 col-span-2 w-[230px]">
           <ArticleCard
             thumbnail={thumbnail}
             author="Author"
@@ -28,7 +28,7 @@ const PopularNews = () => {
             date="11 November 2024"
           />
         </div>
-        <div className="relative row-span-2 w-full">
+        <div className="relative row-span-2 col-span-4 w-full">
           <Image
             src={thumbnail}
             alt="News thumbnail"
@@ -53,7 +53,7 @@ const PopularNews = () => {
           </div>
         </div>
 
-        <div>
+        <div className="col-span-2">
           <Image
             src={thumbnail}
             alt="News thumbnail"
@@ -64,14 +64,14 @@ const PopularNews = () => {
           <div className="w-full max-w-[300px] flex flex-col mt-3 gap-2">
             <div className="text-xs">Author</div>
             <h2 className="text-lg font-bold">This is example title page</h2>
-            <div className="flex items-center gap-3 text-sm text-gray-500">
+            <div className="flex items-center gap-3 text-xs text-gray-500">
               <span>Categories</span>
               <span className="h-1 w-1 rounded-full bg-black"></span>
               <span>11 November 2024</span>
             </div>
           </div>
         </div>
-        <div>
+        <div className="col-span-2">
           <Image
             src={thumbnail}
             alt="News thumbnail"
@@ -82,7 +82,7 @@ const PopularNews = () => {
           <div className="w-full max-w-[300px] flex flex-col mt-3 gap-2">
             <div className="text-xs">Author</div>
             <h2 className="text-lg font-bold">This is example title page</h2>
-            <div className="flex items-center gap-3 text-sm text-gray-500">
+            <div className="flex items-center gap-3 text-xs text-gray-500">
               <span>Categories</span>
               <span className="h-1 w-1 rounded-full bg-black"></span>
               <span>11 November 2024</span>
