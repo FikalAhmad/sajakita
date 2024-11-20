@@ -6,30 +6,12 @@ import Sidebar from "./components/Sidebar";
 import Bisnis from "./components/Bisnis";
 import Nasional from "./components/Nasional";
 import Entertainment from "./components/Entertainment";
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from "@tanstack/react-query";
-import { fetchPosts } from "@/queries/fetchPosts";
-
-async function fetchServerData() {
-  const queryClient = new QueryClient();
-
-  // Prefetch data di server
-  await queryClient.prefetchQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
-  });
-
-  return dehydrate(queryClient);
-}
+import Hydration from "@/components/Hydration";
 
 const Home = async () => {
-  const dehydrateState = await fetchServerData();
   return (
-    <div>
-      <HydrationBoundary state={dehydrateState}>
+    <>
+      <Hydration>
         <TopAd />
         <Hero />
         <LatestNews />
@@ -43,8 +25,8 @@ const Home = async () => {
           </div>
           <Sidebar />
         </div>
-      </HydrationBoundary>
-    </div>
+      </Hydration>
+    </>
   );
 };
 

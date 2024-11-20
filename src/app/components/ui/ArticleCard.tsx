@@ -31,8 +31,12 @@ const ArticleCard = ({
       />
       <div className="flex flex-col mt-4 gap-4 w-full max-w-[230px]">
         <div className="text-sm">{author}</div>
-        <h3 className="font-bold text-xl">{title}</h3>
-        <p className="text-sm text-gray-600">{content}</p>
+        <h3 className="font-bold text-xl line-clamp-2 text-ellipsis">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-600 line-clamp-3 text-ellipsis">
+          {content}
+        </p>
         <div className="flex items-center gap-3 text-xs text-gray-500">
           <span>{category}</span>
           <span className="h-1 w-1 rounded-full bg-black"></span>
