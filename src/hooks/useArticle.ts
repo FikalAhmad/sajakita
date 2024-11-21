@@ -10,5 +10,7 @@ export const useArticle = (slug: string) => {
       const GetArticle = await fetchArticle(slug);
       return GetArticle;
     },
+    enabled: !!slug,
+    staleTime: 0,
   });
 };
