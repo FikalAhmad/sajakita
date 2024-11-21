@@ -51,9 +51,9 @@ const ArticlePage = () => {
             alt={article?.title}
           />
           <div
-            className=""
-            dangerouslySetInnerHTML={{ __html: article.Content }}
-          ></div>
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: article?.Content }}
+          />
         </div>
         <Sidebar />
       </div>
