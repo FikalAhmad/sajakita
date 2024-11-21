@@ -7,8 +7,14 @@ import ArticleCard from "./ui/ArticleCard";
 import { usePosts } from "@/hooks/usePosts";
 import { PostsData } from "../types/PostTypes";
 const LatestNews = () => {
-  const { data: latestNewsData, isLoading, isError } = usePosts();
-  console.log(latestNewsData);
+  const { data: latestNewsData, isFetching, isError } = usePosts();
+  if (isFetching) {
+    <div>Loading</div>;
+  }
+  if (isError) {
+    <div>Error</div>;
+  }
+  console.log(latestNewsData.data.map((item: PostsData) => item.slug));
 
   return (
     <section className="my-10">
@@ -21,17 +27,18 @@ const LatestNews = () => {
         </Button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-        {latestNewsData?.data?.slice(0, 5)?.map((item: PostsData) => {
+        {latestNewsData.data.slice(0, 5)?.map((item: PostsData) => {
           return (
-            <ArticleCard
-              key={item.id}
-              thumbnail={process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url}
-              author={item.author.name}
-              title={item.title}
-              content={item.Headline}
-              category={item.category.name}
-              date={item.createdAt}
-            />
+            <Link key={item.id} href={`/${item.slug}`}>
+              <ArticleCard
+                thumbnail={process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url}
+                author={item.author.name}
+                title={item.title}
+                content={item.Headline}
+                category={item.category.name}
+                date={item.createdAt}
+              />
+            </Link>
           );
         })}
       </div>

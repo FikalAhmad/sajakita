@@ -8,9 +8,9 @@ import Sidebar from "@/app/components/Sidebar";
 
 const CategoryPage = () => {
   const params = useParams<{ kategori: string }>();
-  const { data, isLoading, isError } = useCategories(params.kategori);
+  const { data, isFetching, isError } = useCategories(params.kategori);
 
-  if (isLoading) {
+  if (isFetching) {
     return <div className="text-center">Loading...</div>;
   }
 
