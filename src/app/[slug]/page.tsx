@@ -55,7 +55,7 @@ const ArticlePage = () => {
             dangerouslySetInnerHTML={{ __html: article?.Content }}
           />
         </div>
-        <Sidebar />
+        <Sidebar marginTop={0} />
       </div>
     </article>
   );

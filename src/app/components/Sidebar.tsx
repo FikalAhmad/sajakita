@@ -3,9 +3,15 @@ import Image from "next/image";
 import thumbnail from "@/../public/thumbnail.png";
 import SidebarAd from "./SidebarAd";
 
-const Sidebar = () => {
+type SidebarProps = {
+  marginTop: number;
+};
+
+const Sidebar = ({ marginTop }: SidebarProps) => {
   return (
-    <div className="hidden lg:block w-[400px] max-w-[400px] border-2">
+    <div
+      className={`hidden lg:block w-[400px] max-w-[400px] border-2 mt-${marginTop}`}
+    >
       <div className="sticky top-10">
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-bold text-3xl">Berita Rekomendasi</h2>

@@ -13,9 +13,9 @@ const CategoryPage = () => {
   if (isLoading) {
     return <div className="text-center">Loading...</div>;
   }
-  
+
   if (isError) {
-    return <div className="text-center">Error</div>
+    return <div className="text-center">Error</div>;
   }
 
   console.log(data);
@@ -31,20 +31,18 @@ const CategoryPage = () => {
             <ArticleCard
               key={article.id}
               thumbnail={
-                process.env.NEXT_PUBLIC_API_URL +
-                  "/" +
-                  article.thumbnail?.url || "/thumbnail.png"
+                process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail?.url
               }
-              author={article.author.name}
+              author={article.author?.name}
               title={article.title}
-              category={article.category.name}
+              category={article.category?.name}
               date={article.publishedAt}
               content={article.Headline}
             />
           ))}
         </div>
         <div className="lg:col-span-4">
-          <Sidebar />
+          <Sidebar marginTop={0}/>
         </div>
       </div>
     </div>

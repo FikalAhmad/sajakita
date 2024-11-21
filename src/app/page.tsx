@@ -23,7 +23,7 @@ const Home = async () => {
             <Nasional />
             <Bisnis />
           </div>
-          <Sidebar />
+          <Sidebar marginTop={10}/>
         </div>
       </Hydration>
     </>
