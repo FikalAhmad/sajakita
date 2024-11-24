@@ -49,7 +49,7 @@ const Navbar = () => {
       </div>
       <div>
         <Popover>
-          <PopoverTrigger asChild>
+          <PopoverTrigger asChild className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="23"
