@@ -31,7 +31,7 @@ const ArticleCard = ({
       />
       <div className="flex flex-col mt-4 gap-4 w-full max-w-[230px]">
         <div className="text-sm">{author}</div>
-        <h3 className="font-bold text-xl line-clamp-2 text-ellipsis">
+        <h3 className="font-bold text-base lg:text-xl line-clamp-2 text-ellipsis">
           {title}
         </h3>
         <p className="text-sm text-gray-600 line-clamp-3 text-ellipsis">

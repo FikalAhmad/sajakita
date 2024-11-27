@@ -1,8 +1,8 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
 
 type ArticleCardHalfProps = {
-  thumbnail: StaticImageData;
+  thumbnail: string;
   author: string;
   title: string;
   content: string;
@@ -29,7 +29,7 @@ const ArticleCardHalf = ({
       />
       <div className="flex flex-col gap-3 w-full">
         <div className="text-sm text-gray-600">{author}</div>
-        <h3 className="font-semibold text-2xl">{title}</h3>
+        <h3 className="font-semibold text-lg lg:text-xl">{title}</h3>
         <p className="text-gray-600 text-sm line-clamp-2">{content}</p>
         <div className="flex items-center gap-3 text-sm text-gray-600">
           {category}
