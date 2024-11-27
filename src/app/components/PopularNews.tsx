@@ -19,7 +19,7 @@ const PopularNews = () => {
       <div className="grid grid-cols-8 gap-5 justify-items-center items-center">
         <div className="row-span-2 col-span-2 w-[230px]">
           <ArticleCard
-            thumbnail={thumbnail}
+            thumbnail={"/"}
             author="Author"
             title="This is example Title Page"
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et

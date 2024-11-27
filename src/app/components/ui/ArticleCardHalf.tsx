@@ -1,11 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
 
 type ArticleCardHalfProps = {
-  thumbnail: StaticImageData;
+  thumbnail: string;
   author: string;
   title: string;
-  content: string;
+  content: string | null;
   category: string;
   date: string;
 };

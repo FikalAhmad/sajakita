@@ -14,8 +14,6 @@ const LatestNews = () => {
   if (isError) {
     <div>Error</div>;
   }
-  console.log(latestNewsData.data.map((item: PostsData) => item.slug));
-
   return (
     <section className="my-10">
       <div className="flex justify-between items-center mb-6">
@@ -27,20 +25,25 @@ const LatestNews = () => {
         </Button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-        {latestNewsData.data.slice(0, 5)?.map((item: PostsData) => {
-          return (
-            <Link key={item.id} href={`/${item.slug}`}>
-              <ArticleCard
-                thumbnail={process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url}
-                author={item.author.name}
-                title={item.title}
-                content={item.Headline}
-                category={item.category.name}
-                date={item.createdAt}
-              />
-            </Link>
-          );
-        })}
+        {latestNewsData?.data
+          .slice(0, 5)
+          ?.reverse()
+          .map((item: PostsData) => {
+            return (
+              <Link key={item.id} href={`/${item.slug}`}>
+                <ArticleCard
+                  thumbnail={
+                    process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url
+                  }
+                  author={item.author.name}
+                  title={item.title}
+                  content={item.Headline}
+                  category={item.category.name}
+                  date={item.updatedAt}
+                />
+              </Link>
+            );
+          })}
       </div>
     </section>
   );
