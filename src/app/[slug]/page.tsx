@@ -18,8 +18,6 @@ const ArticlePage = () => {
     return <div className="text-center">Error</div>;
   }
 
-  console.log(data);
-
   const article = data.data[0];
 
   return (
@@ -44,7 +42,7 @@ const ArticlePage = () => {
       <div className="lg:grid lg:grid-cols-12 gap-5 mt-10">
         <div className="prose max-w-none lg:col-span-8 text-base">
           <Image
-            src="/thumbnail.png"
+            src={article.thumbnail.url}
             className="rounded mb-5 object-cover"
             width={800}
             height={300}

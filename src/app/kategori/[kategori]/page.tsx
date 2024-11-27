@@ -42,7 +42,7 @@ const CategoryPage = () => {
           ))}
         </div>
         <div className="lg:col-span-4">
-          <Sidebar marginTop={0}/>
+          <Sidebar marginTop={0} />
         </div>
       </div>
     </div>

@@ -1,32 +1,48 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-import thumbnail from "@/../public/thumbnail.png";
+import { usePosts } from "@/hooks/usePosts";
+import { PostsData } from "../types/PostTypes";
+import { formatTanggal } from "@/components/formatTanggal";
 
 const Hero = () => {
+  const { data: HeroPost, isFetching, isError } = usePosts();
+  if (isFetching) {
+    <div>Loading</div>;
+  }
+  if (isError) {
+    <div>Error</div>;
+  }
+
+  const FeaturedPost = HeroPost?.data
+    .filter((item: PostsData) => item.featured === true)
+    .reverse()
+    .slice(0, 1)[0];
+
+  console.log(FeaturedPost);
   return (
-    <article className="grid md:grid-cols-2 gap-8 mb-12 items-center">
+    <article className="grid md:grid-cols-2 gap-5 mb-12 items-center justify-items-center">
       <Image
-        src={thumbnail}
-        alt="Featured image"
-        className="object-cover"
+        src={
+          process.env.NEXT_PUBLIC_API_URL + "/" + FeaturedPost?.thumbnail.url
+        }
+        alt="Featured Post"
+        className="object-cover rounded-xl h-96 w-auto"
         width={450}
         height={450}
         priority
       />
 
       <div className="space-y-4">
-        <div className="text-sm">Author</div>
-        <h1 className="text-3xl font-bold">This is example Title Page</h1>
-        <p className="text-gray-600 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sem
-          leo. Nunc turpis urcu, porttitor a orci at, vestibulum aliquam mi.
-          Vivamus arcu nisi, ornare nec eleifend at, placerat non velit. Cras et
-          felis posuere, aliquam risus vitae.
+        <div className="text-sm">{FeaturedPost?.author.name}</div>
+        <h1 className="text-3xl font-bold">{FeaturedPost?.title}</h1>
+        <p className="text-gray-600 text-sm line-clamp-3 text-ellipsis">
+          {FeaturedPost?.Headline}
         </p>
         <div className="flex items-center gap-4 text-sm text-gray-500">
-          <span>Categories</span>
+          <span>{FeaturedPost?.category.name}</span>
           <span className="h-1 w-1 rounded-full bg-black"></span>
-          <span>11 November 2024</span>
+          <span>{formatTanggal(FeaturedPost?.updatedAt)}</span>
         </div>
       </div>
     </article>

@@ -5,7 +5,7 @@ import { fetchArticle } from "../queries/fetchArticle";
 
 export const useArticle = (slug: string) => {
   return useQuery({
-    queryKey: ["article"],
+    queryKey: ["article", slug],
     queryFn: async () => {
       const GetArticle = await fetchArticle(slug);
       return GetArticle;

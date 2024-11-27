@@ -5,7 +5,7 @@ type ArticleCardHalfProps = {
   thumbnail: string;
   author: string;
   title: string;
-  content: string;
+  content: string | null;
   category: string;
   date: string;
 };
