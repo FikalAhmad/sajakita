@@ -23,15 +23,15 @@ const Hydration = async ({ children }: { children: React.ReactNode }) => {
       queryFn: () => fetchPosts(),
     }),
     queryClient.prefetchQuery({
-      queryKey: ["categories"],
+      queryKey: ["categories", "infotainment"],
       queryFn: () => fetchCategories("infotainment"),
     }),
     queryClient.prefetchQuery({
-      queryKey: ["categories"],
+      queryKey: ["categories", "bisnis"],
       queryFn: () => fetchCategories("bisnis"),
     }),
     queryClient.prefetchQuery({
-      queryKey: ["categories"],
+      queryKey: ["categories", "nasional"],
       queryFn: () => fetchCategories("nasional"),
     }),
   ]);

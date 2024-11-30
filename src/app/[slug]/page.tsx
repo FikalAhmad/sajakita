@@ -28,7 +28,7 @@ const ArticlePage = () => {
           <p className="text-gray-600 text-sm">
             {article.category.name.toUpperCase()}
           </p>
-          <Image src="/dot.svg" width={20} height={20} alt="." />
+          <Image src="/dot.svg" width={20} height={20} alt="." priority />
           <p className="text-gray-600 text-sm">
             {new Date(article.publishedAt).toLocaleDateString()}
           </p>
@@ -47,6 +47,7 @@ const ArticlePage = () => {
             width={800}
             height={300}
             alt={article.title}
+            priority
           />
           <div
             className="prose"
