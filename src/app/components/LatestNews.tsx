@@ -24,7 +24,7 @@ const LatestNews = () => {
           </Link>
         </Button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
         {latestNewsData?.data
           .slice(0, 5)
           ?.reverse()
@@ -40,6 +40,7 @@ const LatestNews = () => {
                   content={item.Headline}
                   category={item.category.name}
                   date={item.updatedAt}
+                  fullWidth={true}
                 />
               </Link>
             );

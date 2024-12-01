@@ -7,9 +7,9 @@ import { useCategories } from "@/hooks/useCategories";
 import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
 
-const Entertainment = () => {
+const Infotainment = () => {
   const {
-    data: entertainmentData,
+    data: infotainmentData,
     isFetching,
     isError,
   } = useCategories("infotainment");
@@ -32,7 +32,7 @@ const Entertainment = () => {
       </div>
 
       <div className="flex flex-col gap-10">
-        {entertainmentData?.data
+        {infotainmentData?.data
           ?.slice(0, 5)
           .reverse()
           .map((item: PostsData) => {
@@ -56,4 +56,4 @@ const Entertainment = () => {
   );
 };
 
-export default Entertainment;
+export default Infotainment;

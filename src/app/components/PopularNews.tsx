@@ -45,6 +45,7 @@ const PopularNews = () => {
             category={popularOne.category?.name}
             date={popularOne.publishedAt}
             content={popularOne.Headline}
+            fullWidth={false}
           />
         </div>
         <div className="relative row-span-2 col-span-4 w-full">
@@ -111,7 +112,7 @@ const PopularNews = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-5">
         {popularNews.data.slice(0, 4)?.map((item: PostsData) => {
           return (
             <ArticleCard
@@ -124,6 +125,7 @@ const PopularNews = () => {
               category={item.category?.name}
               date={item.publishedAt}
               content={item.Headline}
+              fullWidth={true}
             />
           );
         })}

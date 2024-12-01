@@ -5,7 +5,7 @@ import PopularNews from "./components/PopularNews";
 import Sidebar from "./components/Sidebar";
 import Bisnis from "./components/Bisnis";
 import Nasional from "./components/Nasional";
-import Entertainment from "./components/Entertainment";
+import Infotainment from "./components/Infotainment";
 import Hydration from "@/components/Hydration";
 
 const Home = async () => {
@@ -17,9 +17,9 @@ const Home = async () => {
         <LatestNews />
         <PopularNews />
         <LatestNews />
-        <div className="mt-5 flex justify-between w-full">
+        <div className="mt-5 flex justify-between gap-5 w-full">
           <div className="w-full">
-            <Entertainment />
+            <Infotainment />
             <Nasional />
             <Bisnis />
           </div>

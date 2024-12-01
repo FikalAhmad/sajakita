@@ -27,7 +27,7 @@ const Hero = () => {
           process.env.NEXT_PUBLIC_API_URL + "/" + FeaturedPost?.thumbnail.url
         }
         alt="Featured Post"
-        className="object-cover rounded-xl h-96 w-auto"
+        className="object-cover rounded-xl h-96 w-full"
         width={450}
         height={450}
         priority
@@ -35,7 +35,7 @@ const Hero = () => {
 
       <div className="space-y-4">
         <div className="text-sm">{FeaturedPost?.author.name}</div>
-        <h1 className="text-3xl font-bold">{FeaturedPost?.title}</h1>
+        <h1 className="text-xl sm:text-3xl font-bold">{FeaturedPost?.title}</h1>
         <p className="text-gray-600 text-sm line-clamp-3 text-ellipsis">
           {FeaturedPost?.Headline}
         </p>
