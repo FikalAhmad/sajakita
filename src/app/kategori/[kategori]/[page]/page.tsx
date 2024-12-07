@@ -1,9 +1,8 @@
 "use client";
 
 import ArticleCard from "@/app/components/ui/ArticleCard";
-import { useCategories } from "@/hooks/useCategories";
+import { useCategoryPages } from "@/hooks/useCategories";
 import { useParams } from "next/navigation";
-import { PostsData } from "../../types/PostTypes";
 import Sidebar from "@/app/components/Sidebar";
 import {
   Pagination,
@@ -13,10 +12,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { PostsData } from "@/app/types/PostTypes";
 
-const CategoryPage = () => {
-  const params = useParams<{ kategori: string }>();
-  const { data, isFetching, isError } = useCategories(params.kategori);
+const CategoryPages = () => {
+  const params = useParams<{ kategori: string; page: string }>();
+  const { data, isFetching, isError } = useCategoryPages(
+    params.kategori,
+    params.page
+  );
 
   if (isFetching) {
     return <div className="text-center">Loading...</div>;
@@ -26,15 +29,13 @@ const CategoryPage = () => {
     return <div className="text-center">Error</div>;
   }
 
-  console.log(data);
-
   return (
     <div className="py-10">
       <h1 className="text-center font-bold uppercase mb-10">
         {params.kategori}
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-center">
-        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
+        <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
           {data?.data?.map((article: PostsData) => (
             <ArticleCard
               key={article.id}
@@ -55,14 +56,26 @@ const CategoryPage = () => {
       </div>
       <Pagination className="mt-10">
         <PaginationContent>
+          {params.page == "1" ? null : (
+            <PaginationPrevious
+              href={`/kategori/${params.kategori}/${parseInt(params.page) - 1}`}
+            />
+          )}
+          {Array.from({ length: data.meta.pagination.pageCount }).map(
+            (_, index) => (
+              <PaginationItem key={index}>
+                <PaginationLink
+                  href={`/kategori/${params.kategori}/${index + 1}`}
+                >
+                  {index + 1}
+                </PaginationLink>
+              </PaginationItem>
+            )
+          )}
           <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext
+              href={`/kategori/${params.kategori}/${parseInt(params.page) + 1}`}
+            />
           </PaginationItem>
         </PaginationContent>
       </Pagination>
@@ -70,4 +83,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default CategoryPages;

@@ -4,11 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "../queries/fetchPosts";
 
 export const usePosts = () => {
-  return useQuery({
+  const { data: response, isFetching } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const GetPosts = await fetchPosts();
-      return GetPosts;
+      return await fetchPosts();
     },
   });
+  return { data: response?.data || [], isFetching };
 };

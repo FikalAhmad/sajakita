@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ArticleCardHalf from "./ui/ArticleCardHalf";
@@ -6,8 +7,12 @@ import { useCategories } from "@/hooks/useCategories";
 import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
 
-const Nasional = () => {
-  const { data: nasionalData, isFetching, isError } = useCategories("nasional");
+const Infotainment = () => {
+  const {
+    data: infotainmentData,
+    isFetching,
+    isError,
+  } = useCategories("infotainment");
   if (isFetching) {
     <div>Loading</div>;
   }
@@ -18,18 +23,18 @@ const Nasional = () => {
   return (
     <section className="my-10">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold">Nasional</h2>
+        <h2 className="text-3xl font-bold">Infotainment</h2>
         <Button variant={"link"} asChild>
-          <Link className="text-lg" href="/kategori/nasional/1">
+          <Link className="text-lg" href="/kategori/infotainment/1">
             Lihat Semua
           </Link>
         </Button>
       </div>
 
       <div className="flex flex-col gap-10">
-        {nasionalData?.data
+        {infotainmentData?.data
+          ?.slice(0, 5)
           .reverse()
-          .slice(0, 5)
           .map((item: PostsData) => {
             return (
               <Link key={item.id} href={`/${item.slug}`}>
@@ -51,4 +56,4 @@ const Nasional = () => {
   );
 };
 
-export default Nasional;
+export default Infotainment;

@@ -1,18 +1,24 @@
-import { notFound } from "next/navigation";
+"use client";
+
 import Image from "next/image";
-import getArticle from "./getArticle";
+import { useArticle } from "@/hooks/useArticle";
+import { useParams } from "next/navigation";
 import Sidebar from "../components/Sidebar";
 import TopAd from "../components/TopAd";
 
-const ArticlePage = async ({ params }: { params: { slug: string } }) => { 
-  const { slug } = await params;
-  const articleData = await getArticle(slug);
+const ArticlePage = () => {
+  const params = useParams<{ slug: string }>();
+  const { data, isError, isFetching } = useArticle(params.slug);
 
-  if (!articleData || !articleData.data || articleData.data.length === 0) {
-    notFound();
+  if (isFetching) {
+    return <div className="text-center">Loading...</div>;
   }
 
-  const article = articleData.data[0];
+  if (isError) {
+    return <div className="text-center">Error</div>;
+  }
+
+  const article = data.data[0];
 
   return (
     <article className="">
@@ -22,7 +28,7 @@ const ArticlePage = async ({ params }: { params: { slug: string } }) => {
           <p className="text-gray-600 text-sm">
             {article.category.name.toUpperCase()}
           </p>
-          <Image src="/dot.svg" width={20} height={20} alt="." />
+          <Image src="/dot.svg" width={20} height={20} alt="." priority />
           <p className="text-gray-600 text-sm">
             {new Date(article.publishedAt).toLocaleDateString()}
           </p>
@@ -34,13 +40,21 @@ const ArticlePage = async ({ params }: { params: { slug: string } }) => {
         </div>
       </div>
       <div className="lg:grid lg:grid-cols-12 gap-5 mt-10">
-        <div
-          className="prose max-w-none lg:col-span-8 text-base"
-        >
-          <Image src="/thumbnail.png" className="rounded mb-5 object-cover" width={800} height={300} alt={article.title} />
-          <div className="" dangerouslySetInnerHTML={{ __html: article.Content }}></div>
+        <div className="prose max-w-none lg:col-span-8 text-base">
+          <Image
+            src={article.thumbnail.url}
+            className="rounded mb-5 object-cover"
+            width={800}
+            height={300}
+            alt={article.title}
+            priority
+          />
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: article?.Content }}
+          />
         </div>
-        <Sidebar />
+        <Sidebar marginTop={0} />
       </div>
     </article>
   );

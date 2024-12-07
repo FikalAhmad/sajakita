@@ -33,7 +33,9 @@ const navLinks2: NavLink[] = [
 const Navbar = () => {
   return (
     <nav className="bg-white py-5 flex gap-5 justify-between items-center">
-      <div className="text-black text-2xl lg:text-4xl font-bold">Sajakita</div>
+      <div className="text-black text-2xl lg:text-4xl font-bold">
+        <Link href="/">Sajakita</Link>
+      </div>
       <div className="flex items-center justify-between gap-10">
         <ul className="hidden md:flex items-center gap-5 lg:gap-16">
           {navLinks.map((link) => (
@@ -47,7 +49,7 @@ const Navbar = () => {
       </div>
       <div>
         <Popover>
-          <PopoverTrigger asChild>
+          <PopoverTrigger asChild className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="23"
@@ -86,7 +88,7 @@ const Navbar = () => {
               <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {navLinks2.map((link) => (
                   <li key={link.name}>
-                    <Button variant="destructive" asChild>
+                    <Button variant="link" asChild>
                       <Link href={link.url} className="text-sm">
                         {link.name}
                       </Link>

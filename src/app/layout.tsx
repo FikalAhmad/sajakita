@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${PlusJakarta.variable} antialiased`}>
         <Providers>
           <BreakingNews />
-          <div className="mx-5 md:mx-10 lg:mx-20">
+          <div className="mx-[10px] sm:mx-5 md:mx-10 lg:mx-20">
             <Navbar />
             {children}
           </div>
