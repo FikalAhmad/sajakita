@@ -25,7 +25,7 @@ const Infotainment = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold">Infotainment</h2>
         <Button variant={"link"} asChild>
-          <Link className="text-lg" href="/kategori/infotainment">
+          <Link className="text-lg" href="/kategori/infotainment/1">
             Lihat Semua
           </Link>
         </Button>

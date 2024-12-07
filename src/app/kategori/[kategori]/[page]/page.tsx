@@ -35,7 +35,7 @@ const CategoryPages = () => {
         {params.kategori}
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-center">
-        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
+        <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
           {data?.data?.map((article: PostsData) => (
             <ArticleCard
               key={article.id}

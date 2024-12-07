@@ -9,7 +9,6 @@ type ArticleCardProps = {
   content: string | null;
   category: string;
   date: string;
-  fullWidth: boolean;
 };
 
 const ArticleCard = ({
@@ -19,23 +18,16 @@ const ArticleCard = ({
   content,
   category,
   date,
-  fullWidth,
 }: ArticleCardProps) => {
-
-  let width = "w-full";
-  if (!fullWidth) {
-    width = "w-[230px]";
-  }
-
   return (
-    <article className={`${width}`}>
+    <article className="w-[230px]">
       <Image
         alt="News thumbnail"
         width={230}
         height={230}
         src={thumbnail}
         loading="lazy"
-        className={`${width} h-[150px] sm:h-[230px] object-cover rounded-xl`}
+        className={`h-[150px] sm:h-[230px] object-cover rounded-xl`}
       />
       <div className="flex flex-col mt-4 gap-4 w-full">
         <div className="text-sm">{author}</div>

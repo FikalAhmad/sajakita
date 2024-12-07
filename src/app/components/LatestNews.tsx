@@ -7,13 +7,13 @@ import ArticleCard from "./ui/ArticleCard";
 import { usePosts } from "@/hooks/usePosts";
 import { PostsData } from "../types/PostTypes";
 const LatestNews = () => {
-  const { data: latestNewsData, isFetching, isError } = usePosts();
+  const { data: latestNewsData, isFetching } = usePosts();
+  console.log(latestNewsData);
+
   if (isFetching) {
-    <div>Loading</div>;
+    return <div>Loading</div>;
   }
-  if (isError) {
-    <div>Error</div>;
-  }
+
   return (
     <section className="my-10">
       <div className="flex justify-between items-center mb-6">
@@ -24,10 +24,10 @@ const LatestNews = () => {
           </Link>
         </Button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
-        {latestNewsData?.data
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 justify-items-center">
+        {latestNewsData
           .slice(0, 5)
-          ?.reverse()
+          .reverse()
           .map((item: PostsData) => {
             return (
               <Link key={item.id} href={`/${item.slug}`}>
@@ -40,7 +40,6 @@ const LatestNews = () => {
                   content={item.Headline}
                   category={item.category.name}
                   date={item.updatedAt}
-                  fullWidth={true}
                 />
               </Link>
             );

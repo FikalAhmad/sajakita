@@ -46,7 +46,6 @@ const CategoryPage = () => {
               category={article.category?.name}
               date={article.publishedAt}
               content={article.Headline}
-              fullWidth={true}
             />
           ))}
         </div>

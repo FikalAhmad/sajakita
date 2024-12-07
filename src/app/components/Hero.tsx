@@ -6,20 +6,16 @@ import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
 
 const Hero = () => {
-  const { data: HeroPost, isFetching, isError } = usePosts();
+  const { data: HeroPost, isFetching } = usePosts();
   if (isFetching) {
     <div>Loading</div>;
   }
-  if (isError) {
-    <div>Error</div>;
-  }
 
-  const FeaturedPost = HeroPost?.data
-    .filter((item: PostsData) => item.featured === true)
+  const FeaturedPost = HeroPost.filter(
+    (item: PostsData) => item.featured === true
+  )
     .reverse()
     .slice(0, 1)[0];
-
-  console.log(FeaturedPost);
   return (
     <article className="grid md:grid-cols-2 gap-5 mb-12 items-center justify-items-center">
       <Image
