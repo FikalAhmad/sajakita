@@ -34,7 +34,7 @@ const Sidebar = () => {
                 />
                 <div className="flex-1 space-y-2">
                   <Link href={`/${item.slug}`}>
-                    <h3 className="font-semibold line-clamp-3 text-ellipsis">
+                    <h3 className="font-semibold line-clamp-3 text-ellipsis hover:text-gray-500">
                       {item.title}
                     </h3>
                   </Link>

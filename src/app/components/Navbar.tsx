@@ -96,11 +96,16 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
+              <div className="block md:hidden mt-10">
+                <Search />
+              </div>
             </div>
           </PopoverContent>
         </Popover>
       </div>
-      <Search />
+      <div className="hidden md:block">
+        <Search />
+      </div>
     </nav>
   );
 };

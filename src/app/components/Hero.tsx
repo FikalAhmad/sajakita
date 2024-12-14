@@ -4,6 +4,7 @@ import React from "react";
 import { usePosts } from "@/hooks/usePosts";
 import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
+import Link from "next/link";
 
 const Hero = () => {
   const { data: HeroPost, isFetching } = usePosts();
@@ -31,7 +32,11 @@ const Hero = () => {
 
       <div className="space-y-4">
         <div className="text-sm">{FeaturedPost?.author.name}</div>
-        <h1 className="text-xl sm:text-3xl font-bold">{FeaturedPost?.title}</h1>
+        <Link href={`/${FeaturedPost?.slug}`}>
+          <h1 className="text-xl sm:text-3xl font-bold hover:text-gray-500">
+            {FeaturedPost?.title}
+          </h1>
+        </Link>
         <p className="text-gray-600 text-sm line-clamp-3 text-ellipsis">
           {FeaturedPost?.Headline}
         </p>

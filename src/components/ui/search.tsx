@@ -15,7 +15,7 @@ const Search = () => {
     }
   };
   return (
-    <div className="relative hidden md:block">
+    <div className="relative">
       <Input
         type="search"
         className="pl-4 pr-8 border-0 rounded-full bg-slate-200"

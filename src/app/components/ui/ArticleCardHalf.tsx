@@ -19,7 +19,7 @@ const ArticleCardHalf = ({
   date,
 }: ArticleCardHalfProps) => {
   return (
-    <article className="flex items-center gap-5 bg-white">
+    <article className="flex items-center gap-5 bg-white group">
       <Image
         src={thumbnail}
         alt="Article thumbnail"
@@ -29,7 +29,7 @@ const ArticleCardHalf = ({
       />
       <div className="basis-3/4 flex flex-col gap-3 w-full">
         <div className="text-[10px] sm:text-sm text-gray-600">{author}</div>
-        <h3 className="font-semibold text-[16px] line-clamp-2 sm:line-clamp-none sm:text-lg lg:text-xl">
+        <h3 className="font-semibold text-[16px] line-clamp-2 sm:line-clamp-none sm:text-lg lg:text-xl group-hover:text-gray-500">
           {title}
         </h3>
         <p className="text-gray-600 text-sm line-clamp-2 hidden sm:block">
