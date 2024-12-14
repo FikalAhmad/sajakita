@@ -9,7 +9,7 @@ const TopAd = () => {
   if (isFetching) {
     <div>Loading</div>;
   }
-  console.log(topAdData.ads);
+  console.log(topAdData);
 
   return (
     <div className="w-full flex justify-center">

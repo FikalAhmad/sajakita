@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -8,11 +9,18 @@ const Footer = () => {
         <hr className="block md:hidden text-light w-full" />
         <div>
           <ul className="flex gap-5 flex-wrap md:w-[500px] justify-center md:justify-start">
-            <li>Tentang Sajakita</li>
-            <li>Redaksi</li>
-            <li>Pedoman Media Siber</li>
-            <li>Standar Perlindungan Wartawan</li>
-            <li>Kontak Sajakita</li>
+            <Link href={"/tentang"}>
+              <li>Tentang Sajakita</li>
+            </Link>
+            <Link href={"/redaksi"}>
+              <li>Redaksi</li>
+            </Link>
+            <Link href={"/pedoman"}>
+              <li>Pedoman Media Siber</li>
+            </Link>
+            <Link href={"/spw"}>
+              <li>Standar Perlindungan Wartawan</li>
+            </Link>
           </ul>
         </div>
       </div>
