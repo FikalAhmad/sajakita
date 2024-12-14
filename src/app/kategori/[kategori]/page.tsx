@@ -50,7 +50,7 @@ const CategoryPage = () => {
           ))}
         </div>
         <div className="lg:col-span-4">
-          <Sidebar marginTop={0} />
+          <Sidebar />
         </div>
       </div>
       <Pagination className="mt-10">
