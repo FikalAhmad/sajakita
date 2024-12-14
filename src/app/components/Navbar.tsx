@@ -13,21 +13,21 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { name: "Nasional", url: "/kategori/nasional" },
-  { name: "Teknologi", url: "/kategori/teknologi" },
-  { name: "Gaya Hidup", url: "/kategori/gayahidup" },
-  { name: "Bisnis", url: "/kategori/bisnis" },
-  { name: "Infotainment", url: "/kategori/infotainment" },
+  { name: "Nasional", url: "/kategori/nasional/1" },
+  { name: "Teknologi", url: "/kategori/teknologi/1" },
+  { name: "Gaya Hidup", url: "/kategori/gayahidup/1" },
+  { name: "Bisnis", url: "/kategori/bisnis/1" },
+  { name: "Infotainment", url: "/kategori/infotainment/1" },
 ];
 const navLinks2: NavLink[] = [
-  { name: "Nasional", url: "/kategori/nasional" },
-  { name: "Teknologi", url: "/kategori/teknologi" },
-  { name: "Gaya Hidup", url: "/kategori/gayahidup" },
-  { name: "Bisnis", url: "/kategori/bisnis" },
-  { name: "Infotainment", url: "/kategori/infotainment" },
-  { name: "Internasional", url: "/kategori/internasional" },
-  { name: "Olahraga", url: "/kategori/olahraga" },
-  { name: "Kesehatan", url: "/kategori/kesehatan" },
+  { name: "Nasional", url: "/kategori/nasional/1" },
+  { name: "Teknologi", url: "/kategori/teknologi/1" },
+  { name: "Gaya Hidup", url: "/kategori/gayahidup/1" },
+  { name: "Bisnis", url: "/kategori/bisnis/1" },
+  { name: "Infotainment", url: "/kategori/infotainment/1" },
+  { name: "Internasional", url: "/kategori/internasional/1" },
+  { name: "Olahraga", url: "/kategori/olahraga/1" },
+  { name: "Kesehatan", url: "/kategori/kesehatan/1" },
 ];
 
 const Navbar = () => {

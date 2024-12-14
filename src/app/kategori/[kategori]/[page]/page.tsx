@@ -13,6 +13,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { PostsData } from "@/app/types/PostTypes";
+import Link from "next/link";
 
 const CategoryPages = () => {
   const params = useParams<{ kategori: string; page: string }>();
@@ -37,17 +38,19 @@ const CategoryPages = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-center">
         <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
           {data?.data?.map((article: PostsData) => (
-            <ArticleCard
-              key={article.id}
-              thumbnail={
-                process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail?.url
-              }
-              author={article.author?.name}
-              title={article.title}
-              category={article.category?.name}
-              date={article.publishedAt}
-              content={article.Headline}
-            />
+            <Link key={article.id} href={`/${article.slug}`}>
+              <ArticleCard
+                key={article.id}
+                thumbnail={
+                  process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail?.url
+                }
+                author={article.author?.name}
+                title={article.title}
+                category={article.category?.name}
+                date={article.publishedAt}
+                content={article.Headline}
+              />
+            </Link>
           ))}
         </div>
         <div className="lg:col-span-4">

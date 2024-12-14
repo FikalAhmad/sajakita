@@ -8,7 +8,6 @@ import { usePosts } from "@/hooks/usePosts";
 import { PostsData } from "../types/PostTypes";
 const LatestNews = () => {
   const { data: latestNewsData, isFetching } = usePosts();
-  console.log(latestNewsData);
 
   if (isFetching) {
     return <div>Loading</div>;

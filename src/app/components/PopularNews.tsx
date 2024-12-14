@@ -14,10 +14,10 @@ const PopularNews = () => {
     <div>Loading</div>;
   }
 
-  const popularOne = popularNews[0];
-  const popularTwo = popularNews[1];
-  const popularThree = popularNews[2];
-  const popularFour = popularNews[3];
+  const popularOne = popularNews.at(-1);
+  const popularTwo = popularNews.at(-2);
+  const popularThree = popularNews.at(3);
+  const popularFour = popularNews.at(-4);
 
   return (
     <section className="my-10">

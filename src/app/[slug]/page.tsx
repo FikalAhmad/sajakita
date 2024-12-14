@@ -42,7 +42,7 @@ const ArticlePage = () => {
       <div className="lg:grid lg:grid-cols-12 gap-5 mt-10">
         <div className="prose max-w-none lg:col-span-8 text-base">
           <Image
-            src={article.thumbnail.url}
+            src={process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail.url}
             className="rounded mb-5 object-cover"
             width={800}
             height={300}

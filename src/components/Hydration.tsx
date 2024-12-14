@@ -1,3 +1,4 @@
+import { fetchAd } from "@/queries/fetchAd";
 import { fetchCategories } from "@/queries/fetchCategories";
 import { fetchPosts } from "@/queries/fetchPosts";
 import {
@@ -33,6 +34,10 @@ const Hydration = async ({ children }: { children: React.ReactNode }) => {
     queryClient.prefetchQuery({
       queryKey: ["categories", "nasional"],
       queryFn: () => fetchCategories("nasional"),
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ["ad"],
+      queryFn: () => fetchAd(),
     }),
   ]);
   return (
