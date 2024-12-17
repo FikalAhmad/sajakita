@@ -7,13 +7,11 @@ import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
 
 const Bisnis = () => {
-  const { data: bisnisData, isFetching, isError } = useCategories("bisnis");
+  const { data: bisnisData, isFetching } = useCategories("bisnis");
   if (isFetching) {
     <div>Loading</div>;
   }
-  if (isError) {
-    <div>Error</div>;
-  }
+
   return (
     <section className="my-10">
       <div className="flex justify-between items-center mb-6">
@@ -26,7 +24,7 @@ const Bisnis = () => {
       </div>
 
       <div className="flex flex-col gap-10">
-        {bisnisData?.data
+        {bisnisData
           .slice(0, 5)
           .reverse()
           .map((item: PostsData) => {
@@ -34,9 +32,9 @@ const Bisnis = () => {
               <Link key={item.id} href={`/${item.slug}`}>
                 <ArticleCardHalf
                   thumbnail={
-                    process.env.NEXT_PUBLIC_API_URL + "/" + item.thumbnail?.url
+                    process.env.NEXT_PUBLIC_API_URL + "/" + item.thumbnail.url
                   }
-                  author={item.author?.name}
+                  author={item.author.name}
                   title={item.title}
                   content={item.Headline}
                   category={item.category.name}

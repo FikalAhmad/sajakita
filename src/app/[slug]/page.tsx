@@ -8,17 +8,13 @@ import TopAd from "../components/TopAd";
 
 const ArticlePage = () => {
   const params = useParams<{ slug: string }>();
-  const { data, isError, isFetching } = useArticle(params.slug);
+  const { data, isFetching } = useArticle(params.slug);
 
   if (isFetching) {
     return <div className="text-center">Loading...</div>;
   }
 
-  if (isError) {
-    return <div className="text-center">Error</div>;
-  }
-
-  const article = data.data[0];
+  const article = data[0];
 
   return (
     <article className="">
@@ -51,10 +47,10 @@ const ArticlePage = () => {
           />
           <div
             className="prose"
-            dangerouslySetInnerHTML={{ __html: article?.Content }}
+            dangerouslySetInnerHTML={{ __html: article.Content }}
           />
         </div>
-        <Sidebar marginTop={0} />
+        <Sidebar />
       </div>
     </article>
   );

@@ -8,16 +8,9 @@ import { PostsData } from "../types/PostTypes";
 import { formatTanggal } from "@/components/formatTanggal";
 
 const Infotainment = () => {
-  const {
-    data: infotainmentData,
-    isFetching,
-    isError,
-  } = useCategories("infotainment");
+  const { data: infotainmentData, isFetching } = useCategories("infotainment");
   if (isFetching) {
     <div>Loading</div>;
-  }
-  if (isError) {
-    <div>Error</div>;
   }
 
   return (
@@ -32,17 +25,17 @@ const Infotainment = () => {
       </div>
 
       <div className="flex flex-col gap-10">
-        {infotainmentData?.data
-          ?.slice(0, 5)
+        {infotainmentData
+          .slice(0, 5)
           .reverse()
           .map((item: PostsData) => {
             return (
               <Link key={item.id} href={`/${item.slug}`}>
                 <ArticleCardHalf
                   thumbnail={
-                    process.env.NEXT_PUBLIC_API_URL + "/" + item.thumbnail?.url
+                    process.env.NEXT_PUBLIC_API_URL + "/" + item.thumbnail.url
                   }
-                  author={item.author?.name}
+                  author={item.author.name}
                   title={item.title}
                   content={item.Headline}
                   category={item.category.name}

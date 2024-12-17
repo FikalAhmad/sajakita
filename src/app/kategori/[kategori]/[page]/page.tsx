@@ -17,17 +17,10 @@ import Link from "next/link";
 
 const CategoryPages = () => {
   const params = useParams<{ kategori: string; page: string }>();
-  const { data, isFetching, isError } = useCategoryPages(
-    params.kategori,
-    params.page
-  );
+  const { data, isFetching } = useCategoryPages(params.kategori, params.page);
 
   if (isFetching) {
     return <div className="text-center">Loading...</div>;
-  }
-
-  if (isError) {
-    return <div className="text-center">Error</div>;
   }
 
   return (
@@ -37,16 +30,16 @@ const CategoryPages = () => {
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-center">
         <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 mx-auto sm:mx-0 gap-5 justify-items-center">
-          {data?.data?.map((article: PostsData) => (
+          {data.map((article: PostsData) => (
             <Link key={article.id} href={`/${article.slug}`}>
               <ArticleCard
                 key={article.id}
                 thumbnail={
-                  process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail?.url
+                  process.env.NEXT_PUBLIC_API_URL + "/" + article.thumbnail.url
                 }
-                author={article.author?.name}
+                author={article.author.name}
                 title={article.title}
-                category={article.category?.name}
+                category={article.category.name}
                 date={article.publishedAt}
                 content={article.Headline}
               />

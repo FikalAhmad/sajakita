@@ -7,26 +7,25 @@ import {
 } from "../queries/fetchCategories";
 
 export const useCategories = (category: string) => {
-  return useQuery({
+  const { data: response, isFetching } = useQuery({
     queryKey: ["categories", category],
     queryFn: async () => {
-      const GetCategories = await fetchCategories(category);
-      return GetCategories;
-    },
-    enabled: Boolean(category), // atau bisa pake !!category
-    // refetchOnWindowFocus: false, //
-    staleTime: 0,
-  });
-};
-
-export const useCategoryPages = (category: string, page: string) => {
-  return useQuery({
-    queryKey: ["categorypages", category],
-    queryFn: async () => {
-      const GetCategories = await fetchCategoryPages(category, page);
-      return GetCategories;
+      return await fetchCategories(category);
     },
     enabled: Boolean(category),
     staleTime: 0,
   });
+  return { data: response?.data || [], isFetching };
+};
+
+export const useCategoryPages = (category: string, page: string) => {
+  const { data: response, isFetching } = useQuery({
+    queryKey: ["categorypages", category],
+    queryFn: async () => {
+      return await fetchCategoryPages(category, page);
+    },
+    enabled: Boolean(category),
+    staleTime: 0,
+  });
+  return { data: response?.data || [], isFetching };
 };
