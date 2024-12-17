@@ -5,11 +5,7 @@ import Image from "next/image";
 import React from "react";
 
 const TopAd = () => {
-  const { data: topAdData, isFetching } = useAd();
-  if (isFetching) {
-    <div>Loading</div>;
-  }
-  console.log(topAdData);
+  const { data: topAdData } = useAd();
 
   return (
     <div className="w-full flex justify-center">
