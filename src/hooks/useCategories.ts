@@ -27,5 +27,5 @@ export const useCategoryPages = (category: string, page: string) => {
     enabled: Boolean(category),
     staleTime: 0,
   });
-  return { data: response?.data || [], isFetching };
+  return { data: response || [], isFetching };
 };

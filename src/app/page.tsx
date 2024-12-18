@@ -14,7 +14,7 @@ const Home = async () => {
         <Hero />
         <LatestNews />
         <PopularNews />
-        <LatestNews />
+        {/* <LatestNews /> */}
         <div className="mt-5 flex justify-between gap-5 w-full">
           <CategoriesNoSSR />
           <Sidebar />

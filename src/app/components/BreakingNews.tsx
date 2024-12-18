@@ -3,6 +3,7 @@ import { usePosts } from "@/hooks/usePosts";
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { PostsData } from "../types/PostTypes";
+import Link from "next/link";
 
 const BreakingNews = () => {
   const { data, isFetching } = usePosts();
@@ -20,9 +21,9 @@ const BreakingNews = () => {
       </div>
       <Marquee pauseOnHover speed={50}>
         {data.slice(0, 5).map((article: PostsData) => (
-          <div className="px-5" key={article.id}>
+          <Link href={`/${article.slug}`} className="px-5" key={article.id}>
             {article.title}
-          </div>
+          </Link>
         ))}
       </Marquee>
     </div>

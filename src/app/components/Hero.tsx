@@ -26,7 +26,7 @@ const Hero = () => {
               process.env.NEXT_PUBLIC_API_URL + "/" + FeaturedPost.thumbnail.url
             }
             alt="Featured Post"
-            className="w-auto h-[450px] object-cover rounded-xl"
+            className="w-auto h-auto object-cover rounded-xl"
             width={600}
             height={450}
             priority
