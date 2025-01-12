@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "./button";
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>();
   const router = useRouter();
 
   const handleEnter = (e: React.KeyboardEvent) => {
@@ -14,6 +14,9 @@ const Search = () => {
       router.push(`/search/${search}`);
     }
   };
+
+  console.log(search);
+
   return (
     <div className="relative">
       <Input
@@ -29,12 +32,13 @@ const Search = () => {
         className="cursor-pointer"
         asChild
         onClick={() => router.push(`/search/${search}`)}
+        disabled={!search}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={23}
-          height={23}
+          width={30}
+          height={30}
           color={"#000000"}
           fill={"none"}
           className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"

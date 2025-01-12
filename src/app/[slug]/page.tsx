@@ -5,6 +5,7 @@ import { useArticle } from "@/hooks/useArticle";
 import { useParams } from "next/navigation";
 import Sidebar from "../components/Sidebar";
 import TopAd from "../components/TopAd";
+import Link from "next/link";
 
 const ArticlePage = () => {
   const params = useParams<{ slug: string }>();
@@ -22,7 +23,9 @@ const ArticlePage = () => {
       <div className="">
         <div className="mb-5 flex flex-row items-center">
           <p className="text-gray-600 text-sm">
-            {article.category.name.toUpperCase()}
+            <Link href={`/kategori/${article.category.slug}/1`}>
+              {article.category.name.toUpperCase()}
+            </Link>
           </p>
           <Image src="/dot.svg" width={20} height={20} alt="." />
           <p className="text-gray-600 text-sm">
