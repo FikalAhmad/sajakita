@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import BreakingNews from "./components/BreakingNews";
+import Providers from "@/components/ReactQueryProvider";
 
 const PlusJakarta = localFont({
   src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",
   variable: "--font-plus-jakarta",
   weight: "100 900",
 });
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import BreakingNews from "./components/BreakingNews";
-import Providers from "@/components/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Sajakita",

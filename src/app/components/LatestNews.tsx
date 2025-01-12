@@ -6,11 +6,19 @@ import { Button } from "@/components/ui/button";
 import ArticleCard from "./ui/ArticleCard";
 import { usePosts } from "@/hooks/usePosts";
 import { PostsData } from "../types/PostTypes";
+import { SkeletonACard } from "./ui/Skeleton";
 const LatestNews = () => {
   const { data: latestNewsData, isFetching } = usePosts();
 
   if (isFetching) {
-    return <div>Loading</div>;
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 justify-items-center">
+        <SkeletonACard />
+        <SkeletonACard />
+        <SkeletonACard />
+        <SkeletonACard />
+      </div>
+    );
   }
 
   return (
@@ -23,27 +31,36 @@ const LatestNews = () => {
           </Link>
         </Button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 justify-items-center">
-        {latestNewsData
-          .slice(0, 5)
-          .reverse()
-          .map((item: PostsData) => {
-            return (
-              <Link key={item.id} href={`/${item.slug}`}>
-                <ArticleCard
-                  thumbnail={
-                    process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url
-                  }
-                  author={item.author.name}
-                  title={item.title}
-                  content={item.Headline}
-                  category={item.category.name}
-                  date={item.updatedAt}
-                />
-              </Link>
-            );
-          })}
-      </div>
+      {isFetching ? (
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 justify-items-center">
+          <SkeletonACard />
+          <SkeletonACard />
+          <SkeletonACard />
+          <SkeletonACard />
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 justify-items-center">
+          {latestNewsData
+            .slice(0, 5)
+            .reverse()
+            .map((item: PostsData) => {
+              return (
+                <Link key={item.id} href={`/${item.slug}`}>
+                  <ArticleCard
+                    thumbnail={
+                      process.env.NEXT_PUBLIC_API_URL + item.thumbnail.url
+                    }
+                    author={item.author.name}
+                    title={item.title}
+                    content={item.Headline}
+                    category={item.category.name}
+                    date={item.updatedAt}
+                  />
+                </Link>
+              );
+            })}
+        </div>
+      )}
     </section>
   );
 };

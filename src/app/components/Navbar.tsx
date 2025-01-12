@@ -40,7 +40,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center gap-5 lg:gap-16">
           {navLinks.map((link) => (
             <li className="text-black text-xs lg:text-sm" key={link.name}>
-              <Button variant={"link"} asChild>
+              <Button variant={"ghost"} asChild>
                 <a href={link.url}>{link.name}</a>
               </Button>
             </li>
@@ -88,7 +88,7 @@ const Navbar = () => {
               <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {navLinks2.map((link) => (
                   <li key={link.name}>
-                    <Button variant="link" asChild>
+                    <Button variant={"ghost"} asChild>
                       <Link href={link.url} className="text-sm">
                         {link.name}
                       </Link>

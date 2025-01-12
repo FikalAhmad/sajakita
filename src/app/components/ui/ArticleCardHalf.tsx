@@ -25,7 +25,7 @@ const ArticleCardHalf = ({
         alt="Article thumbnail"
         width={200}
         height={200}
-        className="h-[150px] sm:h-[200px] w-1/4 sm:w-[200px] basis-1/4 sm:basis-0 rounded-xl object-cover"
+        className="h-[150px] sm:h-[200px] min-w-[200px] basis-1/4 sm:basis-0 rounded-xl object-cover"
       />
       <div className="basis-3/4 flex flex-col gap-3 w-full">
         <div className="text-[10px] sm:text-sm text-gray-600">{author}</div>

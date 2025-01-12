@@ -4,13 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchArticle } from "../queries/fetchArticle";
 
 export const useArticle = (slug: string) => {
-  return useQuery({
+  const { data: response, isFetching } = useQuery({
     queryKey: ["article", slug],
     queryFn: async () => {
-      const GetArticle = await fetchArticle(slug);
-      return GetArticle;
+      return await fetchArticle(slug);
     },
     enabled: !!slug,
     staleTime: 0,
   });
+  return { data: response?.data || [], isFetching };
 };

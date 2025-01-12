@@ -5,11 +5,7 @@ import Image from "next/image";
 import React from "react";
 
 const TopAd = () => {
-  const { data: topAdData, isFetching } = useAd();
-  if (isFetching) {
-    <div>Loading</div>;
-  }
-  console.log(topAdData);
+  const { data: topAdData } = useAd();
 
   return (
     <div className="w-full flex justify-center">
@@ -18,12 +14,13 @@ const TopAd = () => {
           src={
             process.env.NEXT_PUBLIC_API_URL +
             "/" +
-            topAdData.ads?.TopAdImage.url
+            topAdData.topad[0].TopAdImage?.url
           }
           alt={"top ad"}
           width={1280}
           height={128}
           className="w-auto object-cover sm:h-auto"
+          priority
         />
       </div>
     </div>

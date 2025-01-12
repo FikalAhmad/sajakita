@@ -5,20 +5,17 @@ import { useArticle } from "@/hooks/useArticle";
 import { useParams } from "next/navigation";
 import Sidebar from "../components/Sidebar";
 import TopAd from "../components/TopAd";
+import Link from "next/link";
 
 const ArticlePage = () => {
   const params = useParams<{ slug: string }>();
-  const { data, isError, isFetching } = useArticle(params.slug);
+  const { data, isFetching } = useArticle(params.slug);
 
   if (isFetching) {
     return <div className="text-center">Loading...</div>;
   }
 
-  if (isError) {
-    return <div className="text-center">Error</div>;
-  }
-
-  const article = data.data[0];
+  const article = data[0];
 
   return (
     <article className="">
@@ -26,9 +23,11 @@ const ArticlePage = () => {
       <div className="">
         <div className="mb-5 flex flex-row items-center">
           <p className="text-gray-600 text-sm">
-            {article.category.name.toUpperCase()}
+            <Link href={`/kategori/${article.category.slug}/1`}>
+              {article.category.name.toUpperCase()}
+            </Link>
           </p>
-          <Image src="/dot.svg" width={20} height={20} alt="." priority />
+          <Image src="/dot.svg" width={20} height={20} alt="." />
           <p className="text-gray-600 text-sm">
             {new Date(article.publishedAt).toLocaleDateString()}
           </p>
@@ -51,10 +50,10 @@ const ArticlePage = () => {
           />
           <div
             className="prose"
-            dangerouslySetInnerHTML={{ __html: article?.Content }}
+            dangerouslySetInnerHTML={{ __html: article.Content }}
           />
         </div>
-        <Sidebar marginTop={0} />
+        <Sidebar />
       </div>
     </article>
   );
